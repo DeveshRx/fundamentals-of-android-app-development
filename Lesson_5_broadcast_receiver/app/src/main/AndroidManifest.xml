@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.BroadcastReceiverApp">
+
+        <!-- The main activity that starts when the user opens the app -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.BroadcastReceiverApp">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!--
+             STATIC REGISTRATION of a BroadcastReceiver.
+             Static receivers are declared in the manifest and are managed by the Android System.
+        -->
+        <receiver
+            android:name=".StaticReceiver"
+            android:exported="true"
+            >
+            <!--
+                 The intent-filter tells the system which 'actions' this receiver is looking for.
+                 When any app sends a broadcast with this specific action string,
+                 the Android system will instantiate 'StaticReceiver' and call its 'onReceive' method.
+            -->
+            <intent-filter>
+                <action
+                    android:name="com.devesh.broadcastreceiverapp.STATIC_ACTION"
+                    />
+            </intent-filter>
+        </receiver>
+
+    </application>
+
+</manifest>

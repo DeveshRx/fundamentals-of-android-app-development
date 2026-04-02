@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.BroadcastReceiverApp">
+
+        <!-- The main activity of the app -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.BroadcastReceiverApp">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!--
+             Note: For Airplane Mode changes, dynamic registration (done in MainActivity.kt)
+             is generally preferred over static registration in the manifest
+             due to modern Android background execution limits.
+        -->
+        <receiver
+            android:name=".AirplaneModeReceiver"
+            android:exported="true">
+            <intent-filter>
+                <!-- This action is what the receiver listens for -->
+                <action android:name="android.intent.action.AIRPLANE_MODE" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>

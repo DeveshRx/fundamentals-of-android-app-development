@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">DB tutoriall</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_edit_database">EditDatabaseActivity</string>
+    <string name="title_activity_view_all_data">ViewAllDataActivity</string>
+    <string name="title_activity_delete_flower">DeleteFlowerActivity</string>
+</resources>
